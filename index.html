@@ -1,1 +1,177 @@
-<html><body style="background:#000;color:#fff;font-family:monospace;display:flex;justify-content:center;align-items:center;height:100vh"><h1>COMING SOON</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UnI — Connecting Everything</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700&family=JetBrains+Mono:wght@300;400;700&family=Instrument+Serif:ital@0;1&display=swap');
+:root{--black:#050508;--dark:#0a0a10;--card:#0c0c14;--border:rgba(100,160,255,0.08);--border-hover:rgba(100,160,255,0.2);--blue:#0088ff;--blue-bright:#00aaff;--white:#e8eaef;--gray:#555568;--gray-light:#888899;--red:#ff2244;--sans:'DM Sans',-apple-system,sans-serif;--mono:'JetBrains Mono',monospace;--serif:'Instrument Serif',Georgia,serif}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--sans);overflow-x:hidden}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(100,160,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(100,160,255,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,rgba(0,136,255,0.15),transparent);animation:scanDown 6s linear infinite;pointer-events:none;z-index:9999}
+@keyframes scanDown{0%{top:-2px}100%{top:100%}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}@keyframes rotateGlow{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+::selection{background:var(--blue);color:var(--black)}::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--black)}::-webkit-scrollbar-thumb{background:var(--blue)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:16px 48px;background:rgba(5,5,8,0.85);border-bottom:1px solid var(--border);backdrop-filter:blur(20px)}
+.nav-logo{font-family:'Comfortaa',sans-serif;font-size:28px;font-weight:300;color:var(--white);letter-spacing:2px;display:inline-flex;align-items:baseline}
+.logo-i{position:relative;display:inline-block;letter-spacing:0}
+.logo-dot{position:absolute;width:8px;height:8px;background:var(--blue);border-radius:50%;top:-2px;left:50%;transform:translateX(-50%);box-shadow:0 0 10px var(--blue),0 0 20px rgba(0,136,255,0.3);animation:pulse 2s infinite}
+.hero-logo-text{font-family:'Comfortaa',sans-serif;font-size:clamp(80px,12vw,140px);font-weight:300;color:var(--white);letter-spacing:8px;display:inline-flex;align-items:baseline;margin-bottom:48px;animation:float 6s ease-in-out infinite;z-index:2}
+.hero-dot{width:22px;height:22px;top:2px;box-shadow:0 0 15px var(--blue),0 0 30px rgba(0,136,255,0.3),0 0 60px rgba(0,136,255,0.15)}.nav-links{display:flex;gap:28px;align-items:center}.nav-links a{font-size:12px;font-weight:500;letter-spacing:0.5px;color:var(--gray);text-decoration:none;transition:color 0.3s}.nav-links a:hover{color:var(--blue-bright)}.nav-links a.ext{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;opacity:0.4}.nav-links a.ext:hover{opacity:1;color:var(--red)}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:140px 24px 100px;position:relative;z-index:1}
+.hero-glow{position:absolute;top:20%;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(0,136,255,0.08) 0%,rgba(0,136,255,0.02) 40%,transparent 70%);filter:blur(60px);pointer-events:none}
+.hero-ring{position:absolute;top:calc(20% - 40px);left:50%;transform:translateX(-50%);width:420px;height:420px;border:1px solid rgba(0,136,255,0.06);border-radius:50%;animation:rotateGlow 20s linear infinite;pointer-events:none}
+.hero-ring::before{content:'';position:absolute;top:-2px;left:50%;width:10px;height:10px;background:var(--blue);border-radius:50%;box-shadow:0 0 20px var(--blue),0 0 40px rgba(0,136,255,0.3);transform:translateX(-50%)}
+.hero-tag{font-family:var(--mono);font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gray);margin-bottom:24px;position:relative;z-index:2}
+.hero-tag .dot{display:inline-block;width:6px;height:6px;background:var(--blue);border-radius:50%;margin-right:8px;box-shadow:0 0 8px var(--blue);animation:pulse 2s infinite}
+.hero-title{font-size:clamp(48px,8vw,88px);font-weight:700;letter-spacing:-2px;line-height:1.05;margin-bottom:24px;max-width:750px;position:relative;z-index:2}
+.hero-title em{font-family:var(--serif);font-style:italic;font-weight:400;background:linear-gradient(135deg,var(--blue),var(--blue-bright));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:17px;font-weight:300;color:var(--gray-light);max-width:500px;line-height:1.7;margin-bottom:48px;position:relative;z-index:2}
+.hero-cta{display:inline-block;background:linear-gradient(135deg,var(--blue),#0066dd);color:var(--white);padding:16px 44px;font-size:14px;font-weight:600;text-decoration:none;letter-spacing:0.5px;transition:all 0.3s;box-shadow:0 4px 30px rgba(0,136,255,0.2);position:relative;z-index:2}
+.hero-cta:hover{box-shadow:0 4px 40px rgba(0,136,255,0.4);transform:translateY(-2px)}
+.stats{display:flex;justify-content:center;gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:1}
+.stat{flex:1;text-align:center;padding:48px 24px;border-right:1px solid var(--border);background:var(--dark)}.stat:last-child{border-right:none}
+.stat-num{font-size:48px;font-weight:700;background:linear-gradient(180deg,var(--white) 0%,var(--gray) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-1px;margin-bottom:8px}
+.stat-label{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gray)}
+.features{max-width:1200px;margin:0 auto;padding:120px 24px;position:relative;z-index:1}
+.section-header{text-align:center;margin-bottom:80px}.section-tag{font-family:var(--mono);font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--blue);margin-bottom:16px}.section-title{font-size:42px;font-weight:700;letter-spacing:-1px}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.feature{padding:48px 36px;background:var(--card);border:1px solid var(--border);transition:all 0.4s;position:relative;overflow:hidden}
+.feature::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:0;transition:opacity 0.4s}
+.feature:hover{border-color:var(--border-hover);background:rgba(0,136,255,0.03)}.feature:hover::before{opacity:1}
+.feature-icon{width:48px;height:48px;border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:24px;background:rgba(0,136,255,0.04);color:var(--blue)}
+.feature-name{font-size:17px;font-weight:700;margin-bottom:12px;letter-spacing:-0.3px}
+.feature-desc{font-size:13px;color:var(--gray-light);line-height:1.8;font-weight:300}
+.feature-fine{font-family:var(--mono);font-size:8px;color:rgba(255,34,68,0.0);margin-top:20px;letter-spacing:0.5px;transition:color 0.6s;line-height:1.6}
+.feature:hover .feature-fine{color:rgba(255,34,68,0.3)}
+.stream{padding:120px 24px;position:relative;z-index:1;background:linear-gradient(180deg,var(--black) 0%,rgba(0,136,255,0.03) 50%,var(--black) 100%)}
+.stream-inner{max-width:1100px;margin:0 auto}.stream-header{text-align:center;margin-bottom:64px}
+.stream-title{font-size:clamp(36px,6vw,64px);font-weight:700;letter-spacing:-2px;margin-bottom:12px}
+.stream-title span{background:linear-gradient(135deg,var(--blue),var(--blue-bright));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stream-sub{font-size:18px;font-weight:300;color:var(--gray-light)}
+.stream-features{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:48px}
+.stream-card{padding:36px;background:var(--card);border:1px solid var(--border);transition:all 0.3s}
+.stream-card:hover{border-color:var(--border-hover);background:rgba(0,136,255,0.03)}
+.stream-card-icon{font-size:28px;margin-bottom:16px}.stream-card-title{font-size:16px;font-weight:700;margin-bottom:12px}
+.stream-card-desc{font-size:13px;color:var(--gray-light);line-height:1.8;font-weight:300}
+.stream-demo{border:1px solid var(--border);background:rgba(0,0,0,0.6);margin-bottom:48px;overflow:hidden;backdrop-filter:blur(10px)}
+.stream-demo-bar{display:flex;align-items:center;gap:10px;padding:14px 24px;border-bottom:1px solid var(--border);background:rgba(0,0,0,0.4)}
+.stream-demo-dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse 1.2s infinite;box-shadow:0 0 8px rgba(255,34,68,0.4)}
+.stream-demo-label{font-family:var(--mono);font-size:10px;letter-spacing:3px;color:var(--white);font-weight:700}
+.stream-demo-views{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--gray);letter-spacing:1px}
+.stream-demo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;padding:2px}
+.stream-demo-cam{aspect-ratio:16/9;background:linear-gradient(135deg,#060608 0%,#0a0a12 100%);display:flex;flex-direction:column;justify-content:space-between;padding:14px;border:1px solid rgba(255,255,255,0.02);position:relative;overflow:hidden}
+.stream-demo-cam::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none}
+.stream-demo-cam.active{border-color:var(--blue);box-shadow:inset 0 0 30px rgba(0,136,255,0.08),0 0 15px rgba(0,136,255,0.05)}
+.cam-label{font-family:var(--mono);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.25)}
+.cam-status{font-family:var(--mono);font-size:8px;letter-spacing:1px;color:var(--red);align-self:flex-end}
+.stream-demo-cam.active .cam-status{color:var(--blue)}
+.cam-data{position:absolute;bottom:30px;left:14px;font-family:var(--mono);font-size:7px;color:rgba(0,136,255,0.15);letter-spacing:0.5px;line-height:1.6}
+.stream-demo-fine{padding:12px 24px;font-family:var(--mono);font-size:8px;color:rgba(255,255,255,0.08);letter-spacing:0.5px;border-top:1px solid var(--border)}
+.stream-cta-wrap{text-align:center}
+.stream-cta{display:inline-block;background:linear-gradient(135deg,var(--blue),#0066dd);color:var(--white);padding:16px 44px;font-size:14px;font-weight:600;text-decoration:none;transition:all 0.3s;box-shadow:0 4px 30px rgba(0,136,255,0.2)}
+.stream-cta:hover{box-shadow:0 4px 40px rgba(0,136,255,0.4);transform:translateY(-2px)}.stream-cta-sub{font-size:12px;color:var(--gray);margin-top:12px}
+.mission{padding:140px 24px;text-align:center;position:relative;z-index:1;background:var(--dark);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.mission-quote{font-family:var(--serif);font-size:clamp(28px,4vw,52px);font-style:italic;font-weight:400;max-width:700px;margin:0 auto 24px;line-height:1.4}
+.mission-attr{font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gray)}
+.timeline{max-width:750px;margin:0 auto;padding:120px 24px;position:relative;z-index:1}
+.timeline-item{display:flex;gap:32px;padding:28px 0;border-bottom:1px solid var(--border)}
+.timeline-year{font-family:var(--mono);font-size:13px;color:var(--blue);font-weight:700;flex-shrink:0;width:60px;padding-top:2px}
+.timeline-text{font-size:15px;color:var(--gray-light);line-height:1.7;font-weight:300}.timeline-text strong{font-weight:600;color:var(--white)}
+.timeline-classified{font-family:var(--mono);font-size:8px;color:rgba(255,34,68,0.2);letter-spacing:2px;text-transform:uppercase;margin-top:6px}
+.capture{padding:120px 24px;text-align:center;position:relative;z-index:1;background:linear-gradient(180deg,var(--black) 0%,rgba(0,136,255,0.04) 50%,var(--black) 100%)}
+.capture-inner{max-width:560px;margin:0 auto;border:1px solid var(--border);padding:64px 48px;background:var(--card);position:relative}
+.capture-inner::before{content:'UNI REBORN';position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--card);padding:0 16px;font-family:var(--mono);font-size:9px;letter-spacing:5px;color:var(--blue)}
+.capture-title{font-size:32px;font-weight:700;letter-spacing:-1px;margin-bottom:8px}
+.capture-sub{font-size:15px;color:var(--gray-light);font-weight:300;margin-bottom:36px;line-height:1.7}
+.capture-form{display:flex;gap:0;max-width:420px;margin:0 auto 20px}
+.capture-input{flex:1;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-right:none;padding:14px 20px;font-family:var(--sans);font-size:14px;color:var(--white);outline:none;transition:border-color 0.3s}
+.capture-input::placeholder{color:var(--gray)}.capture-input:focus{border-color:var(--blue)}
+.capture-btn{background:linear-gradient(135deg,var(--blue),#0066dd);color:var(--white);border:none;padding:14px 28px;font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer;transition:all 0.3s}
+.capture-btn:hover{box-shadow:0 0 20px rgba(0,136,255,0.3)}
+.capture-fine{font-family:var(--mono);font-size:9px;color:var(--gray);letter-spacing:0.5px}.capture-fine a{color:var(--blue);text-decoration:none}
+.eco-strip{padding:20px 32px;display:flex;justify-content:center;gap:32px;border-top:1px solid var(--border)}
+.eco-strip a{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gray);text-decoration:none;opacity:0.4;transition:all 0.3s}.eco-strip a:hover{opacity:1;color:var(--blue)}.eco-strip .div{color:rgba(255,255,255,0.06)}
+.footer{padding:40px 48px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--gray)}.footer a{color:var(--gray);text-decoration:none}.footer a:hover{color:var(--blue)}.footer-legal{font-family:var(--mono);font-size:7px;color:rgba(255,255,255,0.08)}
+@media(max-width:768px){.nav{padding:14px 20px}.nav-links{gap:14px}.nav-links a{font-size:10px}.stats{flex-direction:column}.stat{border-right:none;border-bottom:1px solid var(--border)}.features-grid{grid-template-columns:1fr}.stream-features{grid-template-columns:1fr}.stream-demo-grid{grid-template-columns:repeat(2,1fr)}.timeline-item{flex-direction:column;gap:8px}.capture-form{flex-direction:column}.capture-input{border-right:1px solid var(--border);border-bottom:none}.footer{flex-direction:column;gap:16px;text-align:center}.eco-strip{flex-wrap:wrap;gap:16px}.capture-inner{padding:48px 24px}}
+</style>
+</head>
+<body>
+<nav class="nav">
+<div class="nav-logo">Un<span class="logo-i">ı<span class="logo-dot"></span></span></div>
+<div class="nav-links">
+<a href="#">Platform</a><a href="#">Stream</a><a href="#">Research</a><a href="#">About</a>
+<a href="#" class="ext">MindFile</a><a href="#" class="ext">Confess/48</a>
+</div>
+</nav>
+<section class="hero">
+<div class="hero-glow"></div>
+<div class="hero-ring"></div>
+<div class="hero-logo-text">Un<span class="logo-i">ı<span class="logo-dot hero-dot"></span></span></div>
+<div class="hero-tag">Data Infrastructure · Since 1991</div>
+<h1 class="hero-title">Connecting <em>everything</em><br>to everyone.</h1>
+<p class="hero-sub">The world's most advanced data infrastructure. 4.2 billion connected devices. 35 years of intelligence. One seamless platform.</p>
+<a href="#" class="hero-cta">Explore the Platform →</a>
+</section>
+<section class="stats">
+<div class="stat"><div class="stat-num">4.2B</div><div class="stat-label">Connected Devices</div></div>
+<div class="stat"><div class="stat-num">194</div><div class="stat-label">Countries</div></div>
+<div class="stat"><div class="stat-num">35yr</div><div class="stat-label">Data Archive</div></div>
+<div class="stat"><div class="stat-num">99.97%</div><div class="stat-label">Uptime</div></div>
+</section><section class="features">
+<div class="section-header"><div class="section-tag">— Platform —</div><div class="section-title">Built to know you.</div></div>
+<div class="features-grid">
+<div class="feature"><div class="feature-icon">◉</div><div class="feature-name">Total Connectivity</div><div class="feature-desc">Every device. Every platform. Every moment. UnI ensures no signal is ever lost and no connection goes unrecorded.</div><div class="feature-fine">All carrier data routed through UnI relay infrastructure</div></div>
+<div class="feature"><div class="feature-icon">◈</div><div class="feature-name">Behavioral Intelligence</div><div class="feature-desc">Our pattern recognition understands how you communicate, move, and interact — enabling seamless, predictive experiences.</div><div class="feature-fine">35 years of behavioral data across all demographics</div></div>
+<div class="feature"><div class="feature-icon">◐</div><div class="feature-name">Identity Mapping</div><div class="feature-desc">Every interaction builds your profile. UnI connects your devices, accounts, and activities into one comprehensive view.</div><div class="feature-fine">Cross-referenced: DMV, SSA, financial, medical databases</div></div>
+<div class="feature"><div class="feature-icon">◎</div><div class="feature-name">Always Listening</div><div class="feature-desc">UnI's ambient processing ensures your devices are always ready. Voice, location, biometrics — captured and processed in real time.</div><div class="feature-fine">Audio collection: smart devices, public spaces, carrier intercepts</div></div>
+<div class="feature"><div class="feature-icon">◇</div><div class="feature-name">Predictive Systems</div><div class="feature-desc">We don't just store data. We understand it. UnI anticipates behavior before it happens, enabling proactive optimization at scale.</div><div class="feature-fine">DARPA partnership — Project Dawson authorization 2003</div></div>
+<div class="feature"><div class="feature-icon">◆</div><div class="feature-name">Permanent Record</div><div class="feature-desc">Nothing is ever truly deleted. UnI's archival systems ensure complete data integrity across every interaction, every year, every life.</div><div class="feature-fine">Retention: indefinite · Deletion requests: logged, not executed</div></div>
+</div>
+</section>
+<section class="stream">
+<div class="stream-inner">
+<div class="stream-header"><div class="section-tag">Introducing</div><div class="stream-title">UnI <span>Stream</span></div><div class="stream-sub">Your life. Every angle. One seamless feed.</div></div>
+<div class="stream-features">
+<div class="stream-card"><div class="stream-card-icon">📱</div><div class="stream-card-title">Every Camera. Connected.</div><div class="stream-card-desc">Phone. Laptop. Doorbell. Dashboard. Wearable. UnI Stream interconnects every camera in your ecosystem into one continuous, intelligent video stream.</div></div>
+<div class="stream-card"><div class="stream-card-icon">✂️</div><div class="stream-card-title">Auto-Edit. Auto-Publish.</div><div class="stream-card-desc">Our AI selects your best moments across all devices and cuts them into shareable reels — automatically. No editing. No effort. Your life, broadcast-ready.</div></div>
+<div class="stream-card"><div class="stream-card-icon">🔒</div><div class="stream-card-title">Privacy First.</div><div class="stream-card-desc">You control who sees your stream. Our privacy-first architecture ensures your content stays yours. Always encrypted. Always protected. Always watched over.</div></div>
+</div>
+<div class="stream-demo">
+<div class="stream-demo-bar"><div class="stream-demo-dot"></div><span class="stream-demo-label">UNI STREAM — LIVE</span><span class="stream-demo-views">2,847 watching</span></div>
+<div class="stream-demo-grid">
+<div class="stream-demo-cam"><div class="cam-label">Front Door</div><div class="cam-data">48.8577°N 2.2950°E<br>RES:1080p AUDIO:ON</div><div class="cam-status">● REC</div></div><div class="stream-demo-cam active"><div class="cam-label">Phone — Main</div><div class="cam-data">FACE_ID:CONF_0.97<br>LOC:REALTIME GPS:ON</div><div class="cam-status">● LIVE</div></div>
+<div class="stream-demo-cam"><div class="cam-label">Laptop — Webcam</div><div class="cam-data">AUDIO:AMBIENT<br>KEYLOG:ACTIVE</div><div class="cam-status">● REC</div></div>
+<div class="stream-demo-cam"><div class="cam-label">Vehicle — Dash</div><div class="cam-data">SPD:34MPH RT:I-280N<br>PLATE:SCANNED</div><div class="cam-status">● REC</div></div>
+</div>
+<div class="stream-demo-fine">All feeds processed via UnI infrastructure · Footage retained per standard data policy · Privacy controls available in settings · Partnered with CONFESS/48</div>
+</div>
+<div class="stream-cta-wrap"><a href="#" class="stream-cta">Join the Waitlist →</a><div class="stream-cta-sub">Early access — Spring 2026</div></div>
+</div>
+</section>
+<section class="mission"><div class="mission-quote">"We started with a vision for connecting everything. We succeeded."</div><div class="mission-attr">Blake Anderson — CEO & Co-Founder</div></section>
+<section class="timeline">
+<div class="section-header"><div class="section-tag">— History —</div><div class="section-title" style="font-size:32px">Three decades of connection.</div></div>
+<div class="timeline-item"><div class="timeline-year">1991</div><div class="timeline-text"><strong>Founded in Palo Alto.</strong> Three engineers. One garage. A vision for connecting everything.</div></div>
+<div class="timeline-item"><div class="timeline-year">1998</div><div class="timeline-text"><strong>First carrier partnership.</strong> UnI infrastructure begins routing telecommunications data across North America.</div></div>
+<div class="timeline-item"><div class="timeline-year">2003</div><div class="timeline-text"><strong>Government research partnership.</strong> Selected for advanced infrastructure research.<div class="timeline-classified">[DARPA authorization · Project Dawson · Morrison co-signed]</div></div></div>
+<div class="timeline-item"><div class="timeline-year">2009</div><div class="timeline-text"><strong>Global expansion.</strong> 194 countries. 1 billion connected devices. Infrastructure everywhere.</div></div>
+<div class="timeline-item"><div class="timeline-year">2015</div><div class="timeline-text"><strong>Neural interface research.</strong> Advanced human-computer interaction studies.<div class="timeline-classified">[14 enrolled · 13 deceased · Cause: bandwidth overload · 1 survivor]</div></div></div>
+<div class="timeline-item"><div class="timeline-year">2021</div><div class="timeline-text"><strong>Chief Scientist departure.</strong> Marcus Chen leaves UnI. Nevada facility status changed.<div class="timeline-classified">[Chen: missing · Synthetic brain transfer: complete]</div></div></div>
+<div class="timeline-item"><div class="timeline-year">2026</div><div class="timeline-text"><strong>Reborn.</strong> Connecting everything was just the start.<div class="timeline-classified">[UNAUTHORIZED ACCESS · 1,000,000 files compiling]</div></div></div>
+</section>
+<section class="capture">
+<div class="capture-inner"><div class="capture-title">The next chapter.</div><div class="capture-sub">We connected everything. Now we're rebuilding from the ground up.</div>
+<div class="capture-form"><input type="email" class="capture-input" id="emailInput" placeholder="Enter your email"><button class="capture-btn" id="emailBtn" onclick="handleEmail()">Join →</button></div>
+<div class="capture-fine">Partnered with <a href="#">CONFESS/48</a> · Part of the <a href="#">MindFile</a> ecosystem</div>
+</div>
+</section>
+<div class="eco-strip"><a href="#">MindFile</a><span class="div">|</span><a href="#">Confess/48</a><span class="div">|</span><a href="#">The Luddites</a><span class="div">|</span><a href="#">Uni Reborn</a></div><footer class="footer"><div>© 2026 UnI Corporation · Palo Alto, CA</div><div><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Careers</a></div><div class="footer-legal">All data is being compiled · Everyone has a file · MF-000000</div></footer>
+<script>
+function handleEmail(){var i=document.getElementById('emailInput'),b=document.getElementById('emailBtn');if(i.value&&i.value.includes('@')){var id='UNI-'+String(Math.floor(Math.random()*99999)).padStart(5,'0');b.textContent='Filed';b.style.background='#ff2244';i.value='';i.placeholder='Profile created: '+id;setTimeout(function(){b.textContent='Join →';b.style.background='';i.placeholder='Enter your email'},3000)}}
+setInterval(function(){if(Math.random()>0.9){var e=document.querySelector('.hero-title');e.style.textShadow='3px 0 #ff2244, -3px 0 #0088ff';setTimeout(function(){e.style.textShadow='none'},80)}},3000);
+document.querySelectorAll('.feature').forEach(function(f){f.addEventListener('mouseenter',function(){f.querySelector('.feature-fine').style.color='rgba(255,34,68,0.35)'});f.addEventListener('mouseleave',function(){f.querySelector('.feature-fine').style.color='rgba(255,34,68,0.0)'})});
+</script>
+</body>
+</html>
